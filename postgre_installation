@@ -1,0 +1,18 @@
+How to install postgres with source code at Ubuntu.
+./configure
+make
+su
+make install
+adduser postgres
+mkdir /usr/local/pgsql/data
+chown postgres /usr/local/pgsql/data
+su - postgres
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1 &
+/usr/local/pgsql/bin/createdb test
+/usr/local/pgsql/bin/psql test
+
+
+NOTE
+1. If configure: error: readline library not found, install libreadline6-dev package
+2. If configure: error: zlib library not found, install zlib1g-dev package
