@@ -1,0 +1,1 @@
+case class Info(name: String)
